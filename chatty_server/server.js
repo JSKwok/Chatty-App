@@ -43,6 +43,8 @@ wss.on('connection', (ws) => {
   ws.on('message', function incoming(data) {
     // Parse the JSON file
     const parsedData = JSON.parse(data)
+
+    // Add unique id for a message before sending back to browser
     parsedData.id = uuidv1();
 
     // For messages
