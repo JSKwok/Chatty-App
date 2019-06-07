@@ -89,6 +89,7 @@ class App extends Component {
 
   }
 
+ // Central rendering for all pages and navigation bar
   render() {
     return (
       <div>
