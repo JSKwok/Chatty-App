@@ -33,6 +33,7 @@ wss.on('connection', (ws) => {
     colour: colourArray[colourIndex]
   }));
 
+  // Notification when new user connects, broadcasts to all
   wss.clients.forEach(function each(client) {
     client.send(JSON.stringify({
       type: 'connect',
