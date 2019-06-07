@@ -50,8 +50,10 @@ class App extends Component {
     }
   }
 
+  // Chat bar functionality, create object and send to server
   handleKeyPress = (event) => {
 
+    // Situation for user to enter a new message
     if (event.target.className === "chatbar-message") {
       if (event.key === 'Enter') {
         this.socket.send(JSON.stringify({
@@ -65,8 +67,8 @@ class App extends Component {
       event.target.value = "";
 
       }
-    }
 
+    // Situation for user to change their name
     if (event.target.className === "chatbar-username") {
       if (event.key === 'Enter') {
         const newName = { name: event.target.value };
