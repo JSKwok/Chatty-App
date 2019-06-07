@@ -12,11 +12,11 @@ class App extends Component {
     }
     this.colour = ''
     this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.messageStateUpdate = this.messageStateUpdate.bind(this)
+    this.messageStateUpdateq = this.messageStateUpdateq.bind(this)
   }
 
   // Function to set state for messages in parent component
-  messageStateUpdate(messages) {
+  messageStateUpdateq(messages) {
     this.setState({messages: messages});
   }
 
@@ -50,7 +50,7 @@ class App extends Component {
           // Handle new user-sent message
           default:
             const messages = this.state.messages.concat(parsedData);
-            this.messageStateUpdate(messages);
+            this.messageStateUpdateq(messages);
             break;
         }
       };
@@ -72,9 +72,8 @@ class App extends Component {
         }));
 
       event.target.value = "";
-
       }
-
+    }
     // Situation for user to change their name
     if (event.target.className === "chatbar-username") {
       if (event.key === 'Enter') {
@@ -87,7 +86,6 @@ class App extends Component {
       this.setState( {currentUser : newName } );
       }
     }
-
   }
 
  // Central rendering for all pages and navigation bar
