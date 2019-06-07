@@ -24,13 +24,16 @@ class App extends Component {
     // Storing the socket
     this.socket = socket;
 
+    // Handler to ensure socket is open
     socket.onopen = () => {
       console.log('Connected to server.')
 
+      // Handler for browser side to receive messages from server
       socket.onmessage = (event) => {
         const parsedData = JSON.parse(event.data);
 
         switch (parsedData.type) {
+
           case 'connect':
             this.setState({
               count: parsedData.count,
