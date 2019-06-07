@@ -12,10 +12,11 @@ class App extends Component {
     }
     this.colour = ''
     this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.handleSocketOpen = this.handleSocketOpen.bind(this)
+    this.messageStateUpdate = this.messageStateUpdate.bind(this)
   }
 
-  handleSocketOpen(messages) {
+  // Function to set state for messages in parent component
+  messageStateUpdate(messages) {
     this.setState({messages: messages});
   }
 
@@ -49,7 +50,7 @@ class App extends Component {
           // Handle new user-sent message
           default:
             const messages = this.state.messages.concat(parsedData);
-            this.handleSocketOpen(messages);
+            this.messageStateUpdate(messages);
             break;
         }
       };
