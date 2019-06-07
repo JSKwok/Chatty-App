@@ -47,7 +47,7 @@ wss.on('connection', (ws) => {
     // Add unique id for a message before sending back to browser
     parsedData.id = uuidv1();
 
-    // For messages
+    // Handler on server for receiving user messages, broadcasting to all users
     if (parsedData.type === 'postMessage') {
       parsedData.type = 'incomingMessage';
       wss.clients.forEach(function each(client) {
@@ -56,7 +56,7 @@ wss.on('connection', (ws) => {
         }
       });
     }
-    // For notifications
+    // Handler to receive name change notifications, broadcasting to all users
     else if (parsedData.type === 'postNotification') {
       parsedData.type = 'incomingNotification';
       wss.clients.forEach(function each(client) {
