@@ -28,6 +28,7 @@ wss.on('connection', (ws) => {
   // Set colours:
   colourIndex < 3 ? colourIndex++ : colourIndex = 0;
 
+  // Send name colour to browser for displaty
   ws.send(JSON.stringify({
     type: 'colour',
     colour: colourArray[colourIndex]
