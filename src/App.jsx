@@ -34,16 +34,19 @@ class App extends Component {
 
         switch (parsedData.type) {
 
+          // Handle new user connection message
           case 'connect':
             this.setState({
               count: parsedData.count,
             });
             break;
 
+          // Handle name change message
           case 'colour':
             this.colour = parsedData.colour;
             break;
 
+          // Handle new user-sent message
           default:
             const messages = this.state.messages.concat(parsedData);
             this.handleSocketOpen(messages);
