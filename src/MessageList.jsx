@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Message from './Message.jsx'
 
+// Loop through Message file to render object containing all messages.
+
 class MessageList extends Component {
   render() {
     return (
